@@ -1,0 +1,56 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.cookswipe.cookswipe"
+    compileSdk = flutter.compileSdkVersion
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+        coreLibraryDesugaringEnabled true
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId = "com.cookswipe.cookswipe"
+        // Firebase Auth requires minSdk 23.
+        minSdk = 23
+        targetSdk = flutter.targetSdkVersion
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+        multiDexEnabled = true
+    }
+
+    buildTypes {
+        release {
+            // TODO: Add your own signing config before publishing to Play Store.
+            // See docs/FIREBASE_SETUP.md for release signing instructions.
+            signingConfig = signingConfigs.debug
+        }
+    }
+}
+
+dependencies {
+    coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:2.1.4"
+}
+
+// Firebase Gradle plugins are applied only when google-services.json is present,
+// so the project still builds before Firebase has been configured
+// (the app then runs in offline mode using the bundled dataset).
+if (file("google-services.json").exists()) {
+    apply plugin: "com.google.gms.google-services"
+    apply plugin: "com.google.firebase.crashlytics"
+}
+
+flutter {
+    source = "../.."
+}

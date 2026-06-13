@@ -1,0 +1,66 @@
+name: cookswipe
+description: "CookSwipe — Never wonder what to cook again. Swipe-based meal decision app."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.6.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # State management
+  flutter_riverpod: ^2.6.1
+
+  # Firebase
+  firebase_core: ^3.10.0
+  firebase_auth: ^5.4.0
+  cloud_firestore: ^5.6.1
+  firebase_analytics: ^11.4.0
+  firebase_crashlytics: ^4.3.0
+  firebase_messaging: ^15.2.0
+  firebase_storage: ^12.4.0
+
+  # Monetization
+  google_mobile_ads: ^5.3.0
+
+  # UI
+  cached_network_image: ^3.4.1
+  flutter_card_swiper: ^7.0.2
+
+  # Local storage & utilities
+  shared_preferences: ^2.3.5
+  intl: ^0.20.1
+  uuid: ^4.5.1
+
+  # Notifications
+  flutter_local_notifications: ^18.0.1
+  timezone: ^0.10.0
+  flutter_timezone: ^3.0.1
+
+  # Admin image upload
+  image_picker: ^1.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.14.3
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/data/food_dataset.json
+
+flutter_launcher_icons:
+  android: true
+  ios: false
+  image_path: "assets/icon/icon.png"
+  adaptive_icon_background: "#DC3C14"
+  adaptive_icon_foreground: "assets/icon/icon_foreground.png"
+  min_sdk_android: 23
